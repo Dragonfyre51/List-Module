@@ -36,8 +36,9 @@
 
 
 <script>
-	document.getElementById('addBtn').addEventListener('click', function(){
-		// get input's content
+
+function buttonPress(){
+	// get input's content
 		var input = document.getElementById('textInput');
 		var text = input.value;
 
@@ -52,7 +53,18 @@
 
 		//clear the input
 		input.value = '';
-		});
+}
+
+
+	document.getElementById('addBtn').addEventListener('click',buttonPress(),false
+		);
+	document.getElementById('addBtn').addEventListener('keyup(U+E007)',buttonPress(),false);
+
+// 6/18/16
+// Working?
+// -- Check syntax for keyup event handler
+// ?? Possible to use keydown without it repeating? would be more intuitive that way.
+// -- make sure buttonPress function works with regular click handler (haven't checked it yet)
 </script>
 
 
