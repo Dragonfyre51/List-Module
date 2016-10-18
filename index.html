@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<!-- 10/18/16 Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- 10/18/16 Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+	<title>List Module</title>
+
+</head>
+
+<body>
+
+	<div class="listLeft">
+		<h2>Create List</h2>
+		<input id="textInput" type="text" />
+		<button id="addBtn" type="button">Add Text</button>
+	</div>
+
+
+	<div class="listRight">
+		<h2>View List</h2>
+		<div id="display"></div>
+
+	</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- 10/18/16 Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body></html>
+
+
+<script>
+	document.getElementById('addBtn').addEventListener('click', function(){
+		// get input's content
+		var input = document.getElementById('textInput');
+		var text = input.value;
+
+		//create a div with the new content
+		var newDiv = document.createElement("div");
+		var newContent = document.createTextNode(text);
+		newDiv.appendChild(newContent);
+
+		//add the input's content to the display
+		var display = document.getElementById('display');
+		display.appendChild(newDiv);
+
+		//clear the input
+		input.value = '';
+		});
+</script>
+
+
+
