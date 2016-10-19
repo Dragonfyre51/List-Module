@@ -11,18 +11,26 @@
 
 	<title>List Module</title>
 
+
+
 </head>
 
 <body>
 
-	<div class="listLeft">
+<style>
+	body {
+		background-color:#ddd;
+	}
+</style>
+
+	<div class="list">
 		<h2>Create List</h2>
 		<input id="textInput" type="text" />
 		<button id="addBtn" type="button">Add Text</button>
 	</div>
 
 
-	<div class="listRight">
+	<div class="listright">
 		<h2>View List</h2>
 		<div id="display"></div>
 
@@ -32,12 +40,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <!-- 10/18/16 Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-</body></html>
-
 
 <script>
-	document.getElementById('addBtn').addEventListener('click', function(){
-		// get input's content
+
+function pressAddItem(){
+	// get input's content
 		var input = document.getElementById('textInput');
 		var text = input.value;
 
@@ -52,8 +59,40 @@
 
 		//clear the input
 		input.value = '';
-		});
+}
+
+document.getElementById('addBtn').addEventListener('click', pressAddItem);
+
+
+document.getElementById('textInput').addEventListener('keyup', function (event) {
+
+	// check to see if enter key was pressed
+	if(event.which === 13){
+
+		//task on enter
+		pressAddItem();
+	}
+});
+
+
+//ITWORKS
+
+
+// - add to list
+// - save named list
+// - reload list from dropdown
+//------------
+// - output list to variable, print variable in dom
+//
+//
+//
+//---------------------
+// prevent injection issues? open input field. Disallow characters? When entered, changed to letters? 
+//
+// stack: http://stackoverflow.com/questions/20855482/preventing-html-and-script-injections-in-javascript
+//
+// html = html.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+//---------------------
 </script>
-
-
-
+</body>
+</html>
