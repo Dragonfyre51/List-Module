@@ -8,6 +8,8 @@
 <!-- 10/18/16 Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+<!-- rawgit prduction url https://cdn.rawgit.com/Dragonfyre51/List-Module/master/index.html -->
+<!-- rawgit development url https://rawgit.com/Dragonfyre51/List-Module/master/index.html-->
 
 	<title>List Module</title>
 
@@ -18,23 +20,45 @@
 <body>
 
 <style>
-	body {
-		background-color:#ddd;
-	}
-</style>
 
-	<div class="list">
-		<h2>Create List</h2>
+	#wrapper {
+		background-color:#a00;
+		border:1px solid #00a;
+		height:50px;
+	}
+
+
+</style>
+<div id="wrapper">
+<div class="pull-left">
+	<div>
+	<h2>Instructions:</h2>
+	</div>
+	<div>
+	<h2>Select a List:</h2>
+	<select>
+		<option>Placeholder 1</option>
+		<option>Placeholder 2</option>
+		<option>Placeholder 3</option>
+	</select>
+
+	</div>
+</div>
+<div class="pull-right">
+	<div>
+		<h2>Add an Item:</h2>
 		<input id="textInput" type="text" />
 		<button id="addBtn" type="button">Add Text</button>
 	</div>
 
 
-	<div class="listright">
-		<h2>View List</h2>
+	<div>
+		<h2>View List:</h2>
 		<div id="display"></div>
 
 	</div>
+</div>
+</div>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -43,7 +67,13 @@
 
 <script>
 
-function pressAddItem(){
+// items --> newlist
+// newlist -> contents of new div
+
+
+var newList="0";
+
+function addNewItem(){
 	// get input's content
 		var input = document.getElementById('textInput');
 		var text = input.value;
@@ -61,16 +91,16 @@ function pressAddItem(){
 		input.value = '';
 }
 
-document.getElementById('addBtn').addEventListener('click', pressAddItem);
-
-
+document.getElementById('addBtn').addEventListener('click', addNewItem);
 document.getElementById('textInput').addEventListener('keyup', function (event) {
+
+
 
 	// check to see if enter key was pressed
 	if(event.which === 13){
 
 		//task on enter
-		pressAddItem();
+		addNewItem();
 	}
 });
 
