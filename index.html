@@ -59,8 +59,14 @@
 
 	<div>
 		<h2>View List:</h2>
-		<div id="display"></div>
+		<ul id="display">
+		</ul>
 
+	</div>
+
+	<div>
+		<h2>Clipboard:</h2>
+		<textarea value="Paste Here"></textarea>
 	</div>
 </div>
 </div>
@@ -76,7 +82,9 @@
 // newlist -> contents of new div
 
 
-var newList="0";
+//var newList="0";
+//var listPreset01 = {title:"Fruit", items:["Lemon","Lime","Orange","Banana","Pineapple"]};
+
 
 function addNewItem(){
 	// get input's content
@@ -84,13 +92,13 @@ function addNewItem(){
 		var text = input.value;
 
 		//create a div with the new content
-		var newDiv = document.createElement("div");
+		var newPar = document.createElement("li");
 		var newContent = document.createTextNode(text);
-		newDiv.appendChild(newContent);
+		newPar.appendChild(newContent);
 
 		//add the input's content to the display
 		var display = document.getElementById('display');
-		display.appendChild(newDiv);
+		display.appendChild(newPar);
 
 		//clear the input
 		input.value = '';
