@@ -1,145 +1,116 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<!-- 10/18/16 Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- 10/18/16 Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		<!-- rawgit prduction url https://cdn.rawgit.com/Dragonfyre51/List-Module/master/indexhtml -->
+		<!-- rawgit development url https://rawgit.com/Dragonfyre51/List-Module/master/index.html-->
+		<title>List Module</title>
+	</head>
+	<body>
+		<style>
+			#wrapper {
+				background-color:#aaa;
+				border:3px solid #088;
+				height:50px;
+			}
+			.listwindow {
+				background-color:#eee;
+				border:3px solid #555;
+			}
+			div {
+				border:3px solid #aaf;
+			}
+			.list {}
+		</style>
+		<div id="wrapper">
+			<div class="pull-left listwindow">
+				<div>
+					<h2>Instructions:</h2>
+					<p>Select a list below to load into the editor.</p>
+				</div>
+				<div>
+					<h2>Select a List:</h2>
+					<select>
+						<option>Placeholder 1</option>
+						<option>Placeholder 2</option>
+						<option>Placeholder 3</option>
+					</select>
+				</div>
+			</div>
+			<div class="pull-right listwindow">
+				<div>
+					<h2>Add an Item:</h2>
+					<input id="textInput" type="text" />
+					<button id="addBtn" type="button">+</button>
+				</div>
+				<div>
+					<h2>View List:</h2>
+					<ul id="display">
+					</ul>
+				</div>
+				<div>
+					<h2>Clipboard:</h2>
+					<textarea value="Paste Here"></textarea>
+				</div>
+			</div>
+		</div>
 
-<head>
-<!-- 10/18/16 Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<!-- 10/18/16 Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<!-- 10/18/16 Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		<script>
+			$(document).ready(function(){
+				// items --> newlist
+				// newlist -> contents of new div
 
-<!-- rawgit prduction url https://cdn.rawgit.com/Dragonfyre51/List-Module/master/index.html -->
-<!-- rawgit development url https://rawgit.com/Dragonfyre51/List-Module/master/index.html-->
+				//var newList="0";
+				//var listPreset01 = {title:"Fruit", items:["Lemon","Lime","Orange","Banana","Pineapple"]};
 
-	<title>List Module</title>
-
-
-
-</head>
-
-<body>
-
-<style>
-
-	#wrapper {
-		background-color:#aaa;
-		border:1px solid #00a;
-		height:50px;
-	}
-	.listwindow {
-		background-color:#eee;
-		border:3px solid #555;
-	}
-	div {
-		border:3px solid #aaf;
-	}
-	.list {}
-
-
-</style>
-<div id="wrapper">
-<div class="pull-left listwindow">
-	<div>
-	<h2>Instructions:</h2>
-	<p>Select a list below to load into the editor.</p>
-	</div>
-	<div>
-	<h2>Select a List:</h2>
-	<select>
-		<option>Placeholder 1</option>
-		<option>Placeholder 2</option>
-		<option>Placeholder 3</option>
-	</select>
-
-	</div>
-</div>
-<div class="pull-right listwindow">
-	<div>
-		<h2>Add an Item:</h2>
-		<input id="textInput" type="text" />
-		<button id="addBtn" type="button">+</button>
-	</div>
-
-
-	<div>
-		<h2>View List:</h2>
-		<ul id="display">
-		</ul>
-
-	</div>
-
-	<div>
-		<h2>Clipboard:</h2>
-		<textarea value="Paste Here"></textarea>
-	</div>
-</div>
-</div>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<!-- 10/18/16 Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-<script>
-
-// items --> newlist
-// newlist -> contents of new div
-
-
-//var newList="0";
-//var listPreset01 = {title:"Fruit", items:["Lemon","Lime","Orange","Banana","Pineapple"]};
-
-
-function addNewItem(){
-	// get input's content
-		var input = document.getElementById('textInput');
-		var text = input.value;
-
-		//create a div with the new content
-		var newPar = document.createElement("li");
-		var newContent = document.createTextNode(text);
-		newPar.appendChild(newContent);
-
-		//add the input's content to the display
-		var display = document.getElementById('display');
-		display.appendChild(newPar);
-
-		//clear the input
-		input.value = '';
-}
-
-document.getElementById('addBtn').addEventListener('click', addNewItem);
-document.getElementById('textInput').addEventListener('keyup', function (event) {
-
-
-
-	// check to see if enter key was pressed
-	if(event.which === 13){
-
-		//task on enter
-		addNewItem();
-	}
-});
-
-
-//ITWORKS
-
-
-// - add to list
-// - save named list
-// - reload list from dropdown
-//------------
-// - output list to variable, print variable in dom
-//
-//
-//
-//---------------------
-// prevent injection issues? open input field. Disallow characters? When entered, changed to letters? 
-//
-// stack: http://stackoverflow.com/questions/20855482/preventing-html-and-script-injections-in-javascript
-//
-// html = html.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-//---------------------
-</script>
-</body>
+				function addNewItem(){
+					// get input's content
+					var input = document.getElementById('textInput');
+					var text = input.value;
+					//create a div with the new content
+					var newPar = document.createElement("li");
+					var newContent = document.createTextNode(text);
+					newPar.appendChild(newContent);
+					//add the input's content to the display
+					var display = document.getElementById('display');
+					display.appendChild(newPar);
+					//clear the input
+					input.value = '';
+				}
+				document.getElementById('addBtn').addEventListener('click', addNewItem);
+				document.getElementById('textInput').addEventListener('keyup', function (event) {
+						// check to see if enter key was pressed
+						if(event.which === 13){
+							//task on enter
+							addNewItem();
+						}
+				});
+				//ITWORKS
+				/*
+				// - add to list
+				// - save named list
+				// - reload list from dropdown
+				//------------
+				// - output list to variable, print variable in dom
+				//
+				//
+				//
+				//---------------------
+				// prevent injection issues? open input field. Disallow characters? When entered, changed to letters? 
+				//
+				// stack: http://stackoverflow.com/questions/20855482/preventing-html-and-script-injections-in-javascript
+				//
+				// html = html.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+				//---------------------
+				*/
+			});
+		</script>
+	</body>
 </html>
